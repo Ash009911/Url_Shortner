@@ -3,10 +3,8 @@ import { nanoid } from 'nanoid';
 
 const router = express.Router();
 
-// In-memory data store
 const urlStore = {};
 
-// POST /shorturls
 router.post('/', (req, res) => {
   const { url, shortcode, validity = 30 } = req.body;
 
@@ -37,7 +35,6 @@ router.post('/', (req, res) => {
   });
 });
 
-// GET /shorturls/:shortcode → Stats
 router.get('/:shortcode', (req, res) => {
   const entry = urlStore[req.params.shortcode];
 

@@ -13,15 +13,12 @@ app.use(cors());
 app.use(express.json());
 app.use(loggerMiddleware);
 
-// Routes
 app.use('/shorturls', shortUrlRouter);
 
-// Home Route
 app.get('/', (req, res) => {
   res.send('Affordmed URL Shortener running!');
 });
 
-// Redirect Handler (dynamic)
 app.get('/:shortcode', (req, res) => {
   const { shortcode } = req.params;
   const entry = urlStore[shortcode];
@@ -39,13 +36,12 @@ app.get('/:shortcode', (req, res) => {
   entry.clickDetails.push({
     timestamp: now,
     referrer: req.get('Referrer') || 'unknown',
-    location: 'India (mock)' // optional IP geo-lookup in future
+    location: 'India (mock)'
   });
 
   return res.redirect(entry.originalUrl);
 });
 
-// Start Server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
