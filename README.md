@@ -1,11 +1,11 @@
-# 🚀 Affordmed URL Shortener
+# Affordmed URL Shortener
 
 A full-stack URL shortening app built with the MERN stack (without DB, using in-memory store).  
 Includes analytics, expiry system, and logging.
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
 - `backend/` – Express.js server with ES Modules  
 - `frontend/` – React (Vite) + Tailwind CSS UI  
